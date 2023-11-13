@@ -1,6 +1,8 @@
 - hosts: all
   become: true
   tasks: 
+     - name: print path
+       command: echo $PATH
      - name: delete old deployment
        command: kubectl delete -f /home/ubuntu/build/getting-started/Deployment.yml       
      - name: delete old service
