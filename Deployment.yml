@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: getting-started
+spec:
+   replicas: 2
+   selector:      # tells the controller which pods to watch/belong to
+    matchLabels:
+     app: getting-started
+   template:
+      metadata:
+        labels:
+          app: getting-started
+      spec:
+       containers:
+        - name: getting-started
+          image: csnkarthik/getting-started
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
