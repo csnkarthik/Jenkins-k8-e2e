@@ -2,10 +2,18 @@
   become: true
   tasks: 
      - name: delete old deployment
-       command: kubectl delete -f /home/ubuntu/build/getting-started/Deployment.yml
+       shell: kubectl delete -f /home/ubuntu/build/getting-started/Deployment.yml
+       args:
+        executable: /bin/bash
      - name: delete old service
-       command: kubectl delete -f /home/ubuntu/build/getting-started/Service.yml
+       shell: kubectl delete -f /home/ubuntu/build/getting-started/Service.yml
+       args:
+        executable: /bin/bash
      - name: create new deployment
-       command: kubectl apply -f /home/ubuntu/build/getting-started/Deployment.yml
+       shell: kubectl apply -f /home/ubuntu/build/getting-started/Deployment.yml
+       args:
+        executable: /bin/bash
      - name: create new service
-       command: kubectl apply -f /home/ubuntu/build/getting-started/Service.yml
+       shell: kubectl apply -f /home/ubuntu/build/getting-started/Service.yml
+       args:
+        executable: /bin/bash
